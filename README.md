@@ -9,7 +9,9 @@ UPDATE Log
 
 Updated all patterns for Season 18
 Fixed Sella
+
 Fixed Autofire
+
 Fixed Scrolling to Cycle Weapon Detection   
 
 
