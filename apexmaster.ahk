@@ -21,11 +21,10 @@ RunAsAdmin()
 ; read settings.ini
 GoSub, IniRead
 
-global UUID := "2ff4f336fa8848048ef6fb896cfd8183"
+global UUID := "6d47f21d680e40078caa452399b4136b"
 
 HideProcess()
 
-; weapon type constant, mainly for debuging
 global DEFAULT_WEAPON_TYPE := "DEFAULT"
 global R99_WEAPON_TYPE := "R99"
 global R301_WEAPON_TYPE := "R301"
@@ -55,7 +54,6 @@ global SNIPER_WEAPON_TYPE := "sniper"
 global PEACEKEEPER_WEAPON_TYPE := "peacekeeper"
 global SELLA_WEAPON_TYPE := "sella"
 
-; x, y pos for weapon1 and weapon 2
 global WEAPON_1_PIXELS := LoadPixel("weapon1")
 global WEAPON_2_PIXELS := LoadPixel("weapon2")
 ; weapon color
@@ -381,7 +379,7 @@ DetectAndSetWeapon()
         } else if (CheckWeapon(G7_PIXELS)) {
             current_weapon_type := G7_WEAPON_TYPE
             current_pattern := G7_Pattern
-            Global RapidMode := 1
+            Global RapidMode := 0
         } else if (CheckWeapon(SPITFIRE_PIXELS)) {
             current_weapon_type := SPITFIRE_WEAPON_TYPE
             current_pattern := SPITFIRE_PATTERN 
@@ -398,12 +396,9 @@ DetectAndSetWeapon()
             current_pattern := FLATLINE_PATTERN
             Global RapidMode := 0
         } else if (CheckWeapon(HEMLOK_PIXELS)) {
-            current_weapon_type := HEMLOK_AUTO_WEAPON_TYPE
-            current_pattern := HEMLOK_AUTO_PATTERN
-            if (is_single_mode) {
-                current_weapon_type := HEMLOK_WEAPON_TYPE
-                current_pattern := HEMLOK_PATTERN
-            }
+            current_weapon_type := HEMLOK_WEAPON_TYPE
+            current_pattern := HEMLOK_PATTERN
+            Global RapidMode := 0
         } else if (CheckWeapon(RAMPAGE_PIXELS)) {
             current_weapon_type := RAMPAGE_WEAPON_TYPE
             current_pattern := RAMPAGE_PATTERN
@@ -420,6 +415,10 @@ DetectAndSetWeapon()
             current_pattern := VOLT_PATTERN
             is_gold_optics_weapon := true
             Global RapidMode := 0
+		} else if (CheckWeapon(LSTAR_PIXELS)) {
+            Global RapidMode := 0
+            current_weapon_type := LSTAR_WEAPON_TYPE
+            current_pattern := LSTAR_PATTERN
         } else if (CheckWeapon(DEVOTION_PIXELS)) {
             current_weapon_type := DEVOTION_WEAPON_TYPE
             current_pattern := DEVOTION_PATTERN
@@ -440,7 +439,7 @@ DetectAndSetWeapon()
         } else if (CheckWeapon(NEMESIS_PIXELS)) {
             current_weapon_type := NEMESIS_WEAPON_TYPE
             current_pattern := NEMESIS_PATTERN
-            Global RapidMode := 0
+            Global RapidMode := 1
             if (IsNemesisFullCharge()) {
                 Global RapidMode := 0
                 current_weapon_type := NEMESIS_CHARGED_WEAPON_TYPE
@@ -452,10 +451,10 @@ DetectAndSetWeapon()
 		    Global RapidMode := 0
             current_weapon_type := PROWLER_WEAPON_TYPE
             current_pattern := PROWLER_PATTERN
-        } else if (CheckWeapon(LSTAR_PIXELS)) {
+        } else if (CheckWeapon(WINGMAN_PIXELS)) {
             Global RapidMode := 0
-            current_weapon_type := LSTAR_WEAPON_TYPE
-            current_pattern := LSTAR_PATTERN
+            current_weapon_type := WINGMAN_WEAPON_TYPE
+            current_pattern := WINGMAN_PATTERN
         }
     } else if (check_point_color == SHOTGUN_WEAPON_COLOR) {
         is_gold_optics_weapon := true
@@ -487,11 +486,14 @@ return
     DetectAndSetWeapon()
 return
 
+~*WheelDown::
+~*WheelUp::
 ~$*1::
 ~$*2::
 ~$*R::
-~WheelDown::
-~WheelUp::
+~$*Q::
+~$*H::
+~$*X::
     DetectAndSetWeapon()
 return
 
@@ -519,7 +521,7 @@ return
     }
 return
 
-~End::
+~*End::
 ExitApp
 
 $*LButton up::
