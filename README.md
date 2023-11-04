@@ -5,7 +5,6 @@ Reduced/No Recoil Script For Apex Legos
 
 UPDATE Log
 **Changelog - 11/03/2023**
-
 - Updated all patterns for Season 19
 - Improved mouseWheel scrolling
 - Moved LSTAR to Energy Tier
@@ -13,7 +12,6 @@ UPDATE Log
 - Added More Buttons to toggle weapon searches, Should be much more consistent.
 
 **08/20/2023**
-
 - Updated all patterns for Season 18
 - Fixed Sella
 - Fixed Autofire
