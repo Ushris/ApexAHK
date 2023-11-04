@@ -4,6 +4,7 @@ Reduced/No Recoil Script For Apex Legos
 **For Educational Purposes ONLY**
 
 UPDATE Log
+
 **11/03/2023**
 - Updated all patterns for Season 19
 - Improved mouseWheel scrolling
