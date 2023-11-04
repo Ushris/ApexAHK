@@ -11,11 +11,11 @@ RunAsAdmin()
 Gosub, IniRead
 
 ; global variable
-global script_version := "v1.4.11"
+global script_version := "Season 19"
 
 ; Convert sens to sider format
 global sider_sen := sens * 10
-global UUID := "2ff4f336fa8848048ef6fb896cfd8183"
+global UUID := "6d47f21d680e40078caa452399b4136b"
 
 ; GUI
 SetFormat, float, 0.1
@@ -100,11 +100,11 @@ Gui, Font, S18 Bold,
 Gui, Add, Button, x142 y259 w190 h40 gbtSave, Save and Run!
 Gui, Font, , 
 Gui, Add, Link, x158 y307 w160 h18 , <a href="https://github.com/mgsweet/Apex-NoRecoil-2021">mgsweet/Apex-NoRecoil-2021</a>
-Gui, Add, Link, x190 y320 w160 h20 , <a href="https://github.com/RenPyy/ApexAHK">Edit By: RenPyy</a>
+Gui, Add, Link, x190 y320 w160 h19 , <a href="https://github.com/RenPyy/ApexAHK">Edit By: RenPyy</a>
 ActiveMonitorInfo(X, Y, Width, Height)
 xPos := Width / 2 - 477 / 2
 yPos := Height / 2 - 335 / 2
-Gui, Show, x%xPos% y%yPos% h335 w477, Apex NoRecoil %script_version%
+Gui, Show, x%xPos% y%yPos% h335 w477, Apex AHK %script_version%
 Return
 
 Slide:
