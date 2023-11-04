@@ -21,7 +21,7 @@ UPDATE Log
 
 **Known Issues**
 - Hemlok Doesn't Detect
-- Prowler Doesn't AutoFire In burst mode
+- Prowler pattern missing for FullAUTO (Burst mode works fine, Please toggle to burst or disable)
 
 **NOTES**
 I am not the original creator of this script, this is a FORK, 
