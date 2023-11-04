@@ -4,7 +4,7 @@ Reduced/No Recoil Script For Apex Legos
 **For Educational Purposes ONLY**
 
 UPDATE Log
-**Changelog - 11/03/2023**
+**11/03/2023**
 - Updated all patterns for Season 19
 - Improved mouseWheel scrolling
 - Moved LSTAR to Energy Tier
