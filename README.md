@@ -5,6 +5,9 @@ Reduced/No Recoil Script For Apex Legos
 
 UPDATE Log
 
+**11/04/2023**
+- Changed Prowler Pattern (still burst only)!
+
 **11/03/2023**
 - Updated all patterns for Season 19
 - Improved mouseWheel scrolling detection
