@@ -7,7 +7,7 @@ UPDATE Log
 
 **11/03/2023**
 - Updated all patterns for Season 19
-- Improved mouseWheel scrolling
+- Improved mouseWheel scrolling detection
 - Moved LSTAR to Energy Tier
 - Moved Wingman to Red Tier
 - Added More Buttons to toggle weapon searches, Should be much more consistent.
