@@ -448,7 +448,7 @@ DetectAndSetWeapon()
         }
     } else if (check_point_color == SUPPY_DROP_COLOR) {
         if (CheckWeapon(PROWLER_PIXELS)) {
-		    Global RapidMode := 0
+		    Global RapidMode := 1
             current_weapon_type := PROWLER_WEAPON_TYPE
             current_pattern := PROWLER_PATTERN
         } else if (CheckWeapon(WINGMAN_PIXELS)) {
