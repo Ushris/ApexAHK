@@ -25,6 +25,7 @@ UPDATE Log
 **Known Issues**
 - Hemlok Doesn't Detect
 - Prowler pattern missing for FullAUTO (Burst mode works fine, Please toggle to burst or disable)
+- Mastery Weapons not detected. (I do not know it's color, and without a mastered weapon, or or LOSELESS imagine if one, I cannot add a way for it to check for mastery.)
 
 **NOTES**
 I am not the original creator of this script, this is a FORK, 
