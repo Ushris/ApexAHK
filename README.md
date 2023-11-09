@@ -5,6 +5,9 @@ Reduced/No Recoil Script For Apex Legos
 
 UPDATE Log
 
+**11/08/2023**
+- Fixed files not being added to github properly (not even sure how this one happened)
+
 **11/04/2023**
 - Changed Prowler Pattern (still burst only)!
 
