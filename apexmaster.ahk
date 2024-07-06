@@ -91,17 +91,18 @@ global FLATLINE_PIXELS := LoadPixel("flatline")
 global RAMPAGE_PIXELS := LoadPixel("rampage")
 global P3030_PIXELS := LoadPixel("p3030")
 global HEMLOK_PIXELS := LoadPixel("hemlok")
+global PROWLER_PIXELS := LoadPixel("prowler")
 ; special
 global CAR_PIXELS := LoadPixel("car")
 ; energy weapon
 global DEVOTION_PIXELS := LoadPixel("devotion")
+global LSTAR_PIXELS := LoadPixel("lstar")
 global HAVOC_PIXELS := LoadPixel("havoc")
 global VOLT_PIXELS := LoadPixel("volt")
 global NEMESIS_PIXELS := LoadPixel("nemesis")
 ; sniper weapon
 global WINGMAN_PIXELS := LoadPixel("wingman")
 ; supply drop weapon
-global PROWLER_PIXELS := LoadPixel("prowler")
 global LSTAR_PIXELS := LoadPixel("lstar")
 ; Turbocharger
 global HAVOC_TURBOCHARGER_PIXELS := LoadPixel("havoc_turbocharger")
@@ -210,6 +211,7 @@ global HAVOC_PATTERN := LoadPattern("Havoc.txt")
 global VOLT_PATTERN := LoadPattern("Volt.txt")
 global NEMESIS_PATTERN = LoadPattern("Nemesis.txt")
 global NEMESIS_CHARGED_PATTERN = LoadPattern("NemesisCharged.txt")
+global LSTAR_PATTERN := LoadPattern("Lstar.txt")
 ; special
 global CAR_PATTERN := LoadPattern("CAR.txt")
 ; heavy weapon pattern
@@ -219,11 +221,11 @@ global RAMPAGEAMP_PATTERN := LoadPattern("RampageAmp.txt")
 global P3030_PATTERN := LoadPattern("3030.txt")
 global HEMLOK_PATTERN := LoadPattern("Hemlok.txt")
 global HEMLOK_AUTO_PATTERN := LoadPattern("HemlokAuto.txt")
+global PROWLER_PATTERN := LoadPattern("Prowler.txt")
 ; sinper weapon pattern
 global WINGMAN_PATTERN := LoadPattern("Wingman.txt")
 ; supply drop weapon pattern
-global PROWLER_PATTERN := LoadPattern("Prowler.txt")
-global LSTAR_PATTERN := LoadPattern("Lstar.txt")
+global WINGMAN_PATTERN := LoadPattern("Wingman.txt")
 ; sella
 global SELLA_PATTERN := LoadPattern("Sella.txt")
 
@@ -403,6 +405,10 @@ DetectAndSetWeapon()
             current_weapon_type := RAMPAGE_WEAPON_TYPE
             current_pattern := RAMPAGE_PATTERN
             Global RapidMode := 0
+	    } else if (CheckWeapon(PROWLER_PIXELS)) {
+            current_weapon_type := PROWLER_WEAPON_TYPE
+            current_pattern := PROWLER_PATTERN
+            Global RapidMode := 1
         } else if (CheckWeapon(CAR_PIXELS)) { 
             current_weapon_type := CAR_WEAPON_TYPE 
             current_pattern := CAR_PATTERN 
@@ -447,14 +453,15 @@ DetectAndSetWeapon()
             }
         }
     } else if (check_point_color == SUPPY_DROP_COLOR) {
-        if (CheckWeapon(PROWLER_PIXELS)) {
-		    Global RapidMode := 1
-            current_weapon_type := PROWLER_WEAPON_TYPE
-            current_pattern := PROWLER_PATTERN
-        } else if (CheckWeapon(WINGMAN_PIXELS)) {
-            Global RapidMode := 0
-            current_weapon_type := WINGMAN_WEAPON_TYPE
-            current_pattern := WINGMAN_PATTERN
+        if (CheckWeapon(DEVOTION_PIXELS)) {
+            current_weapon_type := DEVOTION_WEAPON_TYPE
+            current_pattern := DEVOTION_PATTERN
+		    Global RapidMode := 0
+            if (CheckTurbocharger(DEVOTION_TURBOCHARGER_PIXELS)) {
+                current_pattern := TURBODEVOTION_PATTERN
+                Global RapidMode := 0
+                current_weapon_type := DEVOTION_TURBO_WEAPON_TYPE
+            }
         }
     } else if (check_point_color == SHOTGUN_WEAPON_COLOR) {
         is_gold_optics_weapon := true
@@ -476,7 +483,7 @@ DetectAndSetWeapon()
     }
 }
 
-~$*E Up::
+~$*E::
     Sleep, 200
     DetectAndSetWeapon()
 return
@@ -750,3 +757,4 @@ ExitSub:
         MsgBox, % "Library unloaded"
     }
 ExitApp
+
